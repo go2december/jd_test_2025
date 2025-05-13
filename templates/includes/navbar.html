@@ -1,0 +1,19 @@
+<!-- As a link -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Movie Spot</a>
+        <div>
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="nav-item text-light" style="border: none; background:none;">Logout</button>
+            </form>
+            {% else %}
+            <li class="d-inline">
+                <a href="{% url 'login' %}" class="nav-item nav-link text-light">Login</a>
+            </li>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
